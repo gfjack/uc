@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://119.27.176.115:10199/uc?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: abc123456
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always

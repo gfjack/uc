@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    # 启动参数自行添加启动环境, -Dspring.profiles.active=dev/pro, 部署时修改参数进行部署
+    active: ${activatedProperties}
