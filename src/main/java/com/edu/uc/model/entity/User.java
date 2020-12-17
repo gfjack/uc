@@ -21,6 +21,9 @@ public class User extends BasePo {
   @Id
   private Long userId;
 
+  @ApiModelProperty("用户名")
+  private String userName;
+
   @ApiModelProperty("用户密码")
   private String password;
 
