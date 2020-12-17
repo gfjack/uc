@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://119.27.176.115:10199/uc?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://119.27.176.115:10199/edu?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8
     username: root
     password: abc123456
     driver-class-name: com.mysql.jdbc.Driver
