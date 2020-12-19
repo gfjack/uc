@@ -6,17 +6,19 @@ import com.edu.uc.utils.RedisUtil;
 import com.edu.uc.utils.TokenUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Classname LoginController
- * @Description TODO
- * @Author Minghui Sun, Fengjie Gu
- * @Version 1.0
+ * @ Program       :  com.ljnt.blog.controller.LoginController
+ * @ Description   :
+ * @ Author        :  lj
+ * @ CreateDate    :  2020-1-31 23:38
  */
+@Controller
 public class LoginController {
     @Autowired
     RedisUtil redisUtil;
@@ -45,5 +47,5 @@ public class LoginController {
         response.setHeader("Access-Control-Expose-Headers", "Authorization");
 
         return new Result().OK();
-    }
+    };
 }

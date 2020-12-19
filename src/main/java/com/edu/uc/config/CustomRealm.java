@@ -1,5 +1,6 @@
 package com.edu.uc.config;
 
+
 import com.edu.uc.model.entity.JWTToken;
 import com.edu.uc.utils.TokenUtil;
 import org.apache.shiro.authc.AuthenticationException;
@@ -15,12 +16,6 @@ import org.springframework.stereotype.Component;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * @Classname CustomRealm
- * @Description TODO
- * @Author Minghui Sun, Fengjie Gu
- * @Version 1.0
- */
 @Component
 public class CustomRealm extends AuthorizingRealm {
 

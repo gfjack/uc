@@ -11,12 +11,6 @@ import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-/**
- * @Classname RedisConfig
- * @Description TODO
- * @Author Minghui Sun, Fengjie Gu
- * @Version 1.0
- */
 
 @Configuration
 public class RedisConfig {
@@ -107,4 +101,3 @@ public class RedisConfig {
     }
 
 }
-

@@ -18,12 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @Classname JWTFilter
- * @Description TODO
- * @Author Minghui Sun, Fengjie Gu
- * @Version 1.0
- */
+
 public class JWTFilter extends BasicHttpAuthenticationFilter {
 
     /**

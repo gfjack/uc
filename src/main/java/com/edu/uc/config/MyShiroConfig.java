@@ -3,33 +3,36 @@ package com.edu.uc.config;
 import com.edu.uc.filter.JWTFilter;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
+import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-
 /**
- * @Classname MyShiroConfig
- * @Description TODO
- * @Author Minghui Sun, Fengjie Gu
- * @Version 1.0
+ * @ Program       :  com.ljnt.blog.config.MyShiroConfig
+ * @ Description   :  Shrio配置类
+ * @ Author        :  lj
+ * @ CreateDate    :  2020-2-4 13:48
  */
 @Configuration
 public class MyShiroConfig {
     @Bean
-    public ShiroFilterFactoryBean shiroFilterFactoryBean(org.apache.shiro.mgt.SecurityManager securityManager){
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean=new ShiroFilterFactoryBean();
         Map<String, Filter> filterMap=new LinkedHashMap<>();
         filterMap.put("jwt", new JWTFilter());
         shiroFilterFactoryBean.setFilters(filterMap);
-        shiroFilterFactoryBean.setSecurityManager( securityManager);
+        shiroFilterFactoryBean.setSecurityManager(securityManager);
         //不要用HashMap来创建Map，会有某些配置失效，要用链表的LinkedHashmap
         Map<String,String> filterRuleMap=new LinkedHashMap<>();
         //放行接口
@@ -49,7 +52,7 @@ public class MyShiroConfig {
 
 
     @Bean
-    public DefaultWebSecurityManager securityManager(CustomRealm customRealm){
+    public SecurityManager securityManager(CustomRealm customRealm){
         //设置自定义Realm
         DefaultWebSecurityManager securityManager=new DefaultWebSecurityManager();
         securityManager.setRealm(customRealm);
@@ -79,9 +82,9 @@ public class MyShiroConfig {
      * @return
      */
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(org.apache.shiro.mgt.SecurityManager securityManager){
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager){
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor=new AuthorizationAttributeSourceAdvisor();
-        authorizationAttributeSourceAdvisor.setSecurityManager( securityManager);
+        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
 
         return authorizationAttributeSourceAdvisor;
 
